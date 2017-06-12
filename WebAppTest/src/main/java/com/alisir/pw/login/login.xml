@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC   
+    "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 映射数据处理接口类 -->
+<mapper namespace="com.alisir.pw.login.LoginDB">
+	<!-- 放sql语句：select、insert、update -->
+	<select id="findUser" parameterType="java.util.Map" resultType="java.util.Map">
+		select * from tp_user where id = 0;
+	</select>
+	
+</mapper>  

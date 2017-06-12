@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<web-app version="3.0"  
+    xmlns="http://java.sun.com/xml/ns/javaee"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee  
+　　http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  
+  <!-- 过滤字符集为utf-8 -->
+  <filter>
+		<filter-name>characterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- 放过滤器后面，原因未知，放过滤前就报错 -->
+	<display-name>WebAppTest</display-name>
+	
+	<!-- 配置spring容器 -->
+	<servlet>
+		<servlet-name>springserver</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<!-- 初始化参数 -->
+		<init-param>
+		<!-- 不设置此项，默认找/WEB-INF/springserver-servlet.xml -->
+			<!-- 加载SpringMVC的xml到 spring的上下文容器中 -->
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<!-- 请求映射 -->
+	<servlet-mapping>
+		<servlet-name>springserver</servlet-name>
+		<url-pattern>/api/login.do</url-pattern>
+	</servlet-mapping>
+	
+	  
+	
+	<!-- 欢迎界面 -->
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
