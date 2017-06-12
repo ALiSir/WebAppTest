@@ -17,11 +17,11 @@ maven spring mybatis 简单web应用
 # 运行
 1.输入网址 `服务器IP/WebAppTest/api/login.do`
 
-2.运行结果：`I'am WebAppTest!Connect DB faild!`
+2.运行结果：`Connect DB faild!  I'am WebAppTest!`
         
 3.修改`login.xml`中数据库查询语句`select * from tp_user where id = 0;`改为对应能在你机器中正常运行的sql语句；
 
-4.成功结果：`I'am WebAppTest!Connect DB Succeed!`
+4.成功结果：`Connect DB Succeed!  I'am WebAppTest!`
 
 # 联系方式：
 
